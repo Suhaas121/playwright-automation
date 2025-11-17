@@ -1,0 +1,53 @@
+name: Playwright Tests (DEV)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      ENV: dev   # ⭐ FIXED → Always run dev environment
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # ---------------------------
+      # Load only DEV environment
+      # ---------------------------
+      - name: Load .env.dev
+        run: |
+          echo "Using .env.dev"
+          cp .env.dev .env
+
+      # ---------------------------
+      # Run Playwright Tests
+      # ---------------------------
+      - name: Run Playwright Tests (DEV)
+        run: npm run test:dev
+
+      # ---------------------------
+      # Upload HTML Report
+      # ---------------------------
+      - name: Upload Playwright HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-dev
+          path: playwright-report
