@@ -3,6 +3,10 @@ import { test, expect } from '@playwright/test';
 import { PlaywrightUtils } from '../Utility/utility';
 import * as dotenv from 'dotenv';
 
+import { registerHooks } from '../Utility/testhooks';
+
+registerHooks(test);
+
 dotenv.config();
 
 const selectors = {
@@ -21,7 +25,7 @@ const selectors = {
 test('has title', async ({ page }) => {
   const utils = new PlaywrightUtils(page, expect);
 
-  await utils.goto(process.env.URL);
+  //await utils.goto(process.env.URL);
   await utils.waitForSelector(selectors.submitButton);
 
   // 👇 values from .env
@@ -46,7 +50,7 @@ test('has title', async ({ page }) => {
 test('get started link', async ({ page }) => {
   const utils = new PlaywrightUtils(page, expect);
 
-  await utils.goto(process.env.URL);
+  //await utils.goto(process.env.URL);
   await utils.fill(selectors.usernameInput, process.env.USERNAMES);
   await utils.fill(selectors.passwordInput, process.env.PASSWORD);
 
