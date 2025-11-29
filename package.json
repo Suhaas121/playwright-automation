@@ -2,21 +2,22 @@
   "name": "my_learning",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": {
-  "test:dev": "cross-env ENV=dev npx playwright test",
-  "test:qa": "cross-env ENV=qa npx playwright test",
-  "test:prod": "cross-env ENV=prod npx playwright test"
-},
+  "scripts": {
+    "test:dev": "cross-env ENV=dev npx playwright test",
+    "test:qa": "cross-env ENV=qa npx playwright test",
+    "test:prod": "cross-env ENV=prod npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-  "@playwright/test": "^1.x.x",
+    "@playwright/test": "^1.x.x",
     "cross-env": "^7.0.3",
     "dotenv": "^17.2.3"
   },
   "dependencies": {
+    "cli-table3": "^0.6.5",
     "dotenv": "^17.2.3"
   }
 }
