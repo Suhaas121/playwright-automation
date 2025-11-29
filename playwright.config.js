@@ -40,7 +40,7 @@ export default defineConfig({
 
  use: {
   baseURL: process.env.URL,
-  headless: false,
+  headless: true,
   screenshot: 'only-on-failure',
   video: 'retain-on-failure',
   trace: 'on-first-retry'
