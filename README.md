@@ -113,33 +113,22 @@ Test summary is printed in a CLI table and saved as test-summary.txt.
 
 GitHub Actions CI
 Workflow triggers:
-
 On push to main
-
 On pull_request to main
-
 Manual trigger (workflow_dispatch)
 
 Secrets used in workflow:
-
 URL
-
 USERNAME
-
 PASSWORD
 
 Test Reports
 HTML report: playwright-report/
-
 CLI table summary: printed in console & saved as test-summary.txt
 
 Contributing
 Fork the repository
-
 Create a feature branch
-
 Write tests / features
-
 Raise a PR to main branch
-
 Ensure tests pass in GitHub Actions
