@@ -25,6 +25,7 @@ test('has title', async ({ page }) => {
   await utils.waitForSelector(selectors.submitButton);
 
   // 👇 values from .env
+  console.log("URL from env:", process.env.URL);
   await utils.fill(selectors.usernameInput, process.env.USERNAMES);
   await utils.toHaveValue(selectors.usernameInput, process.env.USERNAMES);
 
@@ -34,7 +35,7 @@ test('has title', async ({ page }) => {
   await utils.toBeVisible(selectors.submitButton);
   await utils.keyboardPress('Enter');
 
-  await utils.toHaveTitle(/Swag Labsss/);
+  await utils.toHaveTitle('Swag Labs');
   await utils.toContainText(selectors.swagLabsTitle, 'Swag Labs');
   await utils.toHaveURL(process.env.URL + "inventory.html");
   
